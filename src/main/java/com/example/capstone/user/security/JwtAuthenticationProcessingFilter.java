@@ -81,6 +81,7 @@ public class JwtAuthenticationProcessingFilter extends OncePerRequestFilter {
         context.setAuthentication(authentication);
         SecurityContextHolder.setContext(context);
 
+
         log.info("Authentication saved in SecurityContext for user: {}", users.getEmail());
     }
 

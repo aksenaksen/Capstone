@@ -70,7 +70,6 @@ public class JwtServiceImpl implements JwtService {
         userRepository.findByEmail(email)
                 .ifPresentOrElse(users ->{
                         users.updateRefreshToken(refreshToken);
-                        System.out.println("--------------------------------------------"+users.getRefreshToken());
                         userRepository.save(users);},() -> new Exception("회원 조회 실패"));
     }
 

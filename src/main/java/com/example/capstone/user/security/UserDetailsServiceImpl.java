@@ -4,6 +4,7 @@ import com.example.capstone.user.jpa.UserEntity;
 import com.example.capstone.user.jpa.UserRepository;
 import com.example.capstone.user.jpa.UsersRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.context.annotation.Primary;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -19,7 +20,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
         UserEntity users = usersRepository.findByEmail(email)
-                .orElseThrow(() -> new IllegalArgumentException(email));
+                .orElseThrow(() -> new IllegalArgumentException("UserNotFound Email "+ email));
         return new UserDetailsImpl(users);
     }
 

@@ -3,14 +3,11 @@ package com.example.capstone.user.jpa;
 
 import com.example.capstone.user.dto.UserRole;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Entity
-@Data
+@Getter
 @Builder
 @AllArgsConstructor
 @Table(name = "USERS")
